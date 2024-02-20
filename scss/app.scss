@@ -1,0 +1,508 @@
+@import '_mixins', '_reset', '_variables';
+
+body{
+  //background-color: var(--negro);
+  position: relative ;
+
+  @media screen and (max-width:480px){
+      font-size: 70%;
+  }
+
+
+}
+
+li {
+  list-style-type: none;
+}
+
+.header {
+  width: 100%;
+  padding: .8em 5%;
+  color: var(--blanco);
+  position: absolute;
+  top: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%);
+  z-index: 3;
+
+
+  @include flex( row, nowrap, space-between, center );
+
+  &__h1 {
+    width: 14em;
+    
+
+    @media screen and (max-width:480px) {
+      width: 35%;
+      margin-top: 1em;
+      }
+    
+  }
+  &__img {
+  }
+  &__nav {
+    width: calc( 100% - 300px );
+    @media screen and (max-width:700px){
+      width: 68%;
+  }
+  }
+  &__ul {
+    @include flex( row, nowrap, flex-end, center );
+  }
+
+  &__li {
+    margin: 0 0 0 1em;
+    @media  screen and (max-width:700px) {
+    margin: 0 0 0 .4em;
+}
+
+  }
+  &__a {
+    
+  }
+  &__login {
+    padding: .5em 1em;
+    border-radius: .4em;
+    background: var(--rojo);
+    font-size: .9em;
+
+    @media screen and (max-width:480px) {
+      font-size: 1.25em;
+      }
+  }
+  
+}
+
+.select {
+    height: 2.3em;
+    width: 8em;
+    overflow: hidden; //para ocultar las opciones
+    border: 1px solid white;
+    border-radius: .25rem;
+    position: relative;
+    font-size: .9em;
+
+    @media screen and (max-width:480px) {
+      width: 35%;
+      margin-top: 1em;
+      } 
+    
+    
+
+    &::after{
+      content: '▼';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0.8em;
+      @include flex( row,  nowrap, center, center );
+      color: white;
+      font-size: 1.2em;
+    }
+    &::before ,.browser{
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: .75em;
+      @include flex( row,  nowrap, center, center );
+      color: inherit;
+    }
+    
+    &__span {
+      @include flex( row, nowrap,  center, center );
+      padding: .5em 1em .5em 1em;
+      margin: 0 .5em;
+    }
+
+    &__ul {
+    }
+
+  &__li {
+    margin-top: .2em;
+    
+  }
+
+  &__a {
+  
+  }
+  
+}
+
+.landing {
+  width: 100%;
+  min-height: 70vh;
+  padding: 0 0 5vh;
+  background:  url(../Assets/landing.jpg) no-repeat center center / cover scroll;
+  @include flex( column, nowrap, center, center);
+  position: relative;
+  color: var(--blanco);
+  text-align: center;
+  @media screen and (min-width:480px){
+    font-size: 60%;
+    min-height: 70vh;
+  }
+  
+
+      &::after{
+        content: '';
+        position: absolute;
+        top:0;
+        width:100%;
+        height: 100%;
+        background: rgba(0,0,0,.5);
+    }
+
+  &__h2 {
+    max-width: 30em;
+    margin: 3em 0 .2em;
+    font-size: 3.5em;
+    font-weight: 700;
+    line-height: 2em;
+    position: relative; 
+    z-index: 2;
+    
+    @media screen and (max-width:480px){
+      max-width: 10em;
+      margin: 4em 0 0;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2em;
+  }
+    
+  }
+
+  &__h3 {
+    margin: 0 0 2em;
+    font-size: 2.2em;
+    position: relative; 
+    line-height: 1em;
+    z-index: 2;
+
+    @media screen and (max-width:480px) {
+    font-size: 1.6em;
+    line-height: 1.5em;
+    top: 1em;
+    }
+
+  }
+  
+  &__p {
+    max-width: 40em;
+    margin: 0 0 1em;
+    font-size: 2em;
+    line-height: 1em;
+    position: relative; 
+    z-index: 2;
+
+    @media screen and (max-width:480px) {
+      font-size: 1.6em;
+      max-width: 16em;
+      line-height: 1.5em;
+      }
+
+  }
+  &__form {
+    width: 100%;
+    max-width: 40em;
+    position: relative; 
+    z-index: 2;
+    
+    @media screen and (max-width:480px) {
+      @include flex( column, nowrap, center, center)
+      }
+
+  }
+  &__input {
+    width: 70%;
+    background: rgb(218, 218, 218) ;
+    padding: .7em 1.4em;
+    margin: 0 .5em;
+    border-radius: .25em;
+    font-size: 1.2em;
+    color: var(--negro) ;
+
+    @media screen and (max-width:480px) {
+      margin: 0 0 1em;
+      width: 80%;
+      font-size: 1.6em;
+      }
+  }
+  &__submit {
+    width: 30%;
+    background: var(--rojo);
+    padding: .7em 1.4em;
+    border-radius: .25em;
+    font-size: 1.5em;
+    font-weight: 400;
+    @include flex( row, nowrap, center, center );
+
+  }
+}
+
+.specs {
+  background: var(--negro);
+  border-top: .5em solid var(--gris);
+  @include flex( row, nowrap, center, center ); //para alinearlo al medio
+  padding: 22vh 0;
+  color: var(--blanco);
+
+  &.inverso .specs__center{
+    flex-direction: row-reverse;
+
+    @media screen and (max-width:480px) {
+      flex-direction: column;
+      
+    }
+  }
+
+  &__center{
+    width: 84%;
+    max-width: 730em;
+    @include flex( row, nowrap, space-between, center );
+
+    @media screen and (max-width:480px) {
+      flex-direction: column;
+      
+    }
+
+  }
+
+  &__col {
+    width: calc(100% / 2 - 1em);
+    position: relative;
+
+    @media screen and (max-width:480px) {
+      width: 100%;
+      text-align: center;
+    }
+    
+
+  }
+
+  &__h4 {
+    margin: 0.2em 0 .5em;
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1em; 
+    
+  }
+
+  &__p {
+    font-size: 1.4em;
+    margin: 0 0 .5em;
+  }
+  &__video{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+
+    &--uno{
+      transform: scale(.75) translateY(20%);
+    }
+    &--dos{
+      transform: scale(.63) translateY(-10%);
+    }
+  }
+
+
+
+  &__overlay{
+    position: relative;
+    z-index: 2 ;
+  }
+
+}
+
+.faq {
+  width: 100%;
+  background: var(--negro);
+  @include flex( row, nowrap, center, center );
+  color: var(--blanco);
+  text-align: center;
+
+  &__center{
+    width: 90%;
+    max-width: 72em;
+    //background: palegreen;
+    
+  }
+
+  &__h3 {
+    background: var(--negro);
+    margin: 0 0 1em;
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    
+
+  }
+  &__ul {
+  font-weight: 400;
+  font-size: 1.5em;
+  text-align: left;
+  }
+  &__li {
+    height: 3.5em;
+    margin: .4em 0;
+    overflow: hidden;
+    //background: rgb(128, 201, 204);
+    
+
+    &.activo{
+      height: auto ;
+    }
+    &.activo .faq__svg{
+      transform: rotate(45deg);
+      //background-color: chartreuse;
+    }
+    // &:nth-of-type(2){}
+  }
+  &__btn {
+    background: var(--gris);
+    width: 100%;
+    border-bottom: 1px solid var(--negro);
+    min-height: 3em;
+    padding: 0 2em;
+    @include flex( row, nowrap, space-between, center );
+    cursor: pointer;
+    
+  }
+  &__span {
+    padding: 1.2em;
+    margin-left: -2em;
+  }
+  &__svg {
+    //background: whitesmoke;
+    width: 1.8em;
+    height: 1.8em;
+
+  }
+  &__info {
+    background: var(--gris);
+    padding: 1.2em;
+  }
+  &__p {
+  background: var(--gris);
+    margin: 0 0 1em ;
+    text-align: left;
+  }
+  
+}
+
+.register {
+  width: 100%;
+  background: var(--negro);
+  @include flex( column, nowrap, center, center );
+  padding: 5em 0;
+  color: var(--blanco);
+  text-align: center;
+
+
+  &__p{
+    max-width: 900px;
+    //background: gold;
+    margin: 0 0 1em;
+    font-size: 1.2em;
+  }
+  &__form {
+    //background: brown;
+    width: 90%;
+    max-width: 37em;
+
+    @media screen and (max-width:480px) {
+      @include flex( column, nowrap, center, center );
+      
+    }
+  }
+  &__input {
+    width: 70%;
+    background: rgb(88, 88, 88) ;
+    border: solid .1em var(--gris);
+    padding: .5em 1.2em;
+    margin: 0 .5em;
+    border-radius: .25em ;
+    font-size: 1.2em;
+    color: var(--negro) ;
+    @media screen and (max-width:480px) {
+      margin: 0 0 1em;
+      width: 80%;
+      font-size: 1.6em;
+    }
+
+  }
+  &__submit {
+    width: 30%;
+    background: var(--rojo);
+    padding: .5em 1.2em;
+    border-radius: .25em;
+    font-size: 1.5em;
+    font-weight: 400;
+    @include flex( row, nowrap, center, center );
+
+    @media screen and (max-width:480px) {
+      font-size: 1.6em;
+      
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  margin: auto;
+  padding: 8vh 0;
+  background: var(--negro);
+  @include flex( row, nowrap, center, center );
+  border-top: .5em solid var(--gris-f);
+  color: rgba(255,255,255,0.7);
+
+
+  &__center{
+    width: 90%;
+    max-width: 72em;
+    //background: green;
+  }
+
+  &__fila {
+    width: 100%;
+    padding: 2em;
+    max-width: 60em;
+    //background: rgb(208, 248, 139);
+    @include flex( row, nowrap, space-between, flex-start );
+  }
+  &__p {
+    //background: deeppink;
+    margin: 0 ;
+    font-size: 1.2em;
+  }
+  
+  &__ul {
+    margin: 0 0 2em;
+    font-size: 1em;
+    line-height: 2em;
+    text-decoration: underline;
+
+    @media screen and (max-width:700px){
+      width: calc( 100% / 2 );
+  }
+  &__li {
+    margin: 0 0 1.4 em;
+    //background: #558446;
+  }
+  &__select{
+    //background: #874646;
+    max-width: 150px;
+    margin: 0 0 1em;
+  }
+
+  &__brand{
+    margin: 2.8em 0 0;
+    font-size: 1.2em;
+  }
+} }
+
+
+
+
+
+
