@@ -232,7 +232,7 @@ li {
 .landing {
   width: 100%;
   min-height: 70vh;
-  padding: 0 0 5vh;
+  padding: 0 0 75vh;
   background: url(../Assets/landing.jpg) no-repeat center center/cover scroll;
   display: flex;
   flex-flow: column nowrap;
